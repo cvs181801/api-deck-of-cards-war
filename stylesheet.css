@@ -1,5 +1,6 @@
 :root {
     --lt-blush: #D0B6BB;
+    --drk-blush: #7a6b6e;
     --med-blush: #b2868e;
     --taupe: #917F82;
     --blue: rgb(35, 35, 248);
@@ -19,7 +20,12 @@
 }
 
 body {
+    background-color: var(--drk-blush);
+    color: white;
+    font-family: var(--ff-urbanist);
+}
+
+.btn__deal {
     background-color: var(--lt-blush);
     color: var(--drk-grey);
-    font-family: var(--ff-urbanist);
 }
