@@ -1,0 +1,25 @@
+:root {
+    --lt-blush: #D0B6BB;
+    --med-blush: #b2868e;
+    --taupe: #917F82;
+    --blue: rgb(35, 35, 248);
+    --robins-egg: rgb(34, 247, 229);
+    --ochre: rgb(255, 208, 0);
+    --tomato: rgb(255, 63, 29);
+    --grey: grey;
+    --drk-grey: rgb(37, 37, 37);
+    --ff-bona-nova: 'Bona Nova', serif;
+    --ff-urbanist: 'Urbanist', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--lt-blush);
+    color: var(--drk-grey);
+    font-family: var(--ff-urbanist);
+}
