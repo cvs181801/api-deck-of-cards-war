@@ -28,4 +28,9 @@ body {
 .btn__deal {
     background-color: var(--lt-blush);
     color: var(--drk-grey);
+    border: 1px solid var(--drk-grey);
+    border-radius: 70%;
+    padding: .5em;
+    height: 3em;
+    cursor: pointer;
 }
