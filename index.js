@@ -1,6 +1,8 @@
 //grab elements from the DOM
 const dealButton = document.querySelector(".btn__deal");
 const container = document.querySelector(".container");
+const paragraph = document.createElement("p");
+const resultDiv = document.querySelector(".resultDiv");
 
 //create a way to get a new deck of cards from the deck of cards api.
 
@@ -22,51 +24,111 @@ dealButton.addEventListener("click", function(e) {
         card2Img.src = `${data.cards[1].image}`;
         container.append(card2Img);
 
-        let playerCardValue = data.cards[0].value;
-        let computerCardValue = data.cards[1].value;
+//1. first solution using if...else statements:
 
-        if (playerCardValue == "ACE") {
-            playerCardValue = 14;
-        } else if (playerCardValue == "KING") {
-            playerCardValue = 13;
-        } else if (playerCardValue == "QUEEN") {
-            playerCardValue = 12;
-        } else if (playerCardValue == "JACK") {
-            playerCardValue = 11;
-        } else if (playerCardValue == "10" || "9" || "8" || "7" || "6" || "5" || "4" || "3" || "2") {
-            parseInt(playerCardValue);
-        }
+         let playerCardValue = data.cards[0].value;
+         let computerCardValue = data.cards[1].value;
 
-        console.log(playerCardValue);
+    //     if (playerCardValue == "ACE") {
+    //         playerCardValue = 14;
+    //     } else if (playerCardValue == "KING") {
+    //         playerCardValue = 13;
+    //     } else if (playerCardValue == "QUEEN") {
+    //         playerCardValue = 12;
+    //     } else if (playerCardValue == "JACK") {
+    //         playerCardValue = 11;
+    //     } else if (playerCardValue == "10" || "9" || "8" || "7" || "6" || "5" || "4" || "3" || "2") {
+    //         parseInt(playerCardValue);
+    //     }
+
+         console.log(playerCardValue);
 
 
-        if (computerCardValue == "ACE") {
-            computerCardValue = 14;
-        } else if (computerCardValue == "KING") {
-            computerCardValue = 13;
-        } else if (computerCardValue == "QUEEN") {
-            computerCardValue = 12;
-        } else if (computerCardValue == "JACK") {
-            computerCardValue = 11;
-        } else if (computerCardValue == "10" || "9" || "8" || "7" || "6" || "5" || "4" || "3" || "2") {
-            parseInt(computerCardValue);
-        }
+    //     if (computerCardValue == "ACE") {
+    //         computerCardValue = 14;
+    //     } else if (computerCardValue == "KING") {
+    //         computerCardValue = 13;
+    //     } else if (computerCardValue == "QUEEN") {
+    //         computerCardValue = 12;
+    //     } else if (computerCardValue == "JACK") {
+    //         computerCardValue = 11;
+    //     } else if (computerCardValue == "10" || "9" || "8" || "7" || "6" || "5" || "4" || "3" || "2") {
+    //         parseInt(computerCardValue);
+    //     }
 
         console.log(computerCardValue);
 
-        function compareHands(card1, card2) {
+    //     function compareHands(card1, card2) {
 
-        if (playerCardValue == computerCardValue) {
-            console.log("its a tie");
-        } else if (playerCardValue > computerCardValue) {
-            console.log("player 1 wins");
-        } else {
-            console.log("computer wins");
-        }
-    }
-        compareHands(playerCardValue, computerCardValue);
+    //     if (playerCardValue == computerCardValue) {
+    //         console.log("its a tie");
+    //     } else if (playerCardValue > computerCardValue) {
+    //         console.log("player 1 wins");
+    //     } else {
+    //         console.log("computer wins");
+    //     }
+    // }
+    //     compareHands(playerCardValue, computerCardValue);
 
-    });
+    //2.here is another way to create the algorithm:
+
+//     const cardValues = {
+//         2: 2,
+//         3: 3,
+//         4: 4,
+//         5: 5,
+//         6: 6,
+//         7: 7,
+//         8: 8,
+//         9: 9,
+//         10: 10,
+//         JACK: 11,
+//         QUEEN: 12,
+//         KING: 13,
+//         ACE: 14
+//     }
+
+// console.log(cardValues[playerCardValue]);
+
+// function compareHands(card1, card2) {
+
+//         if (cardValues[card1] == cardValues[card2]) {
+//             console.log("its a tie");
+//         } else if (cardValues[card1] > cardValues[card2]) {
+//             console.log("player 1 wins");
+//         } else {
+//             console.log("computer wins");
+//         }
+//     }
+//         compareHands(playerCardValue, computerCardValue);
+
+
+//3. another way to solve it using an array with array method:
+
+
+const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+    "10", "JACK", "QUEEN", "KING", "ACE"]
+
+
+ const playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
+     cardValue == playerCardValue
+ );
+
+ const computerCardValueIndex = valueOptions.findIndex((cardValue) =>
+ cardValue == computerCardValue)
+
+if (playerCardValueIndex == computerCardValueIndex) {
+    paragraph.textContent == `It's a tie!`;
+    resultDiv.append(paragraph);
+} else if (playerCardValueIndex > computerCardValueIndex) {
+    paragraph.textContent == `You won!`;
+    resultDiv.append(paragraph);
+} else {
+    paragraph.textContent = `The computer won.`;
+    resultDiv.append(paragraph);
+}
+
 
 })
+});
 
