@@ -224,6 +224,16 @@ function clearElementRenders() {
     computersScoreParagraph. textContent = "";
 }
 
+card1ImgIndicator.addEventListener("mouseover", function(e) {
+    card1Img.style.border = "2px solid var(--robins-egg)";
+    card1Img.style.borderRadius = "10px";
+})
+
+card2ImgIndicator.addEventListener("mouseover", function(e) {
+    card2Img.style.border = "2px solid var(--twilight)";
+    card2Img.style.borderRadius = "10px";
+})
+
 
 //**** More algorithmic ways to solve the 'determine winner' challenge */
 
