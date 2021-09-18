@@ -89,17 +89,19 @@ p {
     max-width: 15em;
 }
 
-.modal > img {
-    filter: hue-rotate(230deg);
-    object-fit: cover;
-}
-
 .modal {
     position: absolute;
-    max-width: 50vw;
-    max-height: 50vh;
+    max-width: 30vw;
+    max-height: 30vh;
     top: 3em;
     left: 5em;
+    /*border: 2px solid var(--robins-egg);*/
+    border-radius: 10px;
+}
+
+.modal > img {
+    filter: hue-rotate(230deg);
+    object-fit: scale-down;
 }
 
 /*@media (min-width: 600px) {

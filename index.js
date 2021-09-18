@@ -153,22 +153,25 @@ if (cardsRemaining > 0) {
     } else {
         if (myScore > computersScore) {
             finalScoreParagraph.textContent = `You won the war!`;
+            modalDiv.style.border = "2px solid white";
             roseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/rose.jpeg";
             modalDiv.append(roseImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/close-photography-of-red-and-pink-rose-56866/</a>`;
         } else if (computersScore > myScore) {
             finalScoreParagraph.textContent = `The computer won this war.  Better luck next time...`;
+            modalDiv.style.border = "2px solid white";
             wiltedRoseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
             modalDiv.append(wiltedRoseImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/shabby-rose-with-scattered-petals-around-4041333/</a>`
         } else {
             finalScoreParagraph.textContent = `This war had no clear winner - it was a tie.`
+            modalDiv.style.border = "2px solid white";
             rosesImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
             modalDiv.append(rosesImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/crop-woman-demonstrating-twig-of-red-roses-7700232/</a>`
         }
     }
-}
+} //close function determineWinner()
 
 
 //**** More algorithmic ways to solve the 'determine winner' challenge */
