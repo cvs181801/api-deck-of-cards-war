@@ -10,6 +10,8 @@ const myScoreParagraph = document.createElement("p");
 scoreDiv.append(myScoreParagraph);
 const computersScoreParagraph = document.createElement("p");
 scoreDiv.append(computersScoreParagraph);
+const finalScoreParagraph = document.createElement("p");
+scoreDiv.append(finalScoreParagraph);
 
 //start the score keepers at 0:
 let myScore = 0;
@@ -44,7 +46,7 @@ dealBtn.addEventListener("click", function(e) {
 //create a way to determine the winner. * for more possible solutions for the determineWinner function challenge, see bottom part of code.*
       //** function:
 
-determineWinner(data.cards[0].value, data.cards[1].value);
+determineWinner(data.cards[0].value, data.cards[1].value, cardsLeft);
 
 discardBtn.addEventListener("click", function(e) {
     e.preventDefault();
@@ -82,7 +84,7 @@ discardBtn.addEventListener("click", function(e) {
             let cardsLeft = data.remaining;
             renderCardsLeft.textContent = `Cards left: ${cardsLeft}`;
             
-            determineWinner(data.cards[0].value, data.cards[1].value);
+            determineWinner(data.cards[0].value, data.cards[1].value, cardsLeft);
           
             
     })//close the draw btn e listener
@@ -93,50 +95,61 @@ discardBtn.addEventListener("click", function(e) {
     
 }); //close the deal new deck e listener
 
-function determineWinner(card1, card2) {
+function determineWinner(card1, card2, cardsRemaining) {
+
+if (cardsRemaining > 0) {
     myScoreParagraph.textContent = "";
     computersScoreParagraph. textContent = "";
 
-let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
-"10", "JACK", "QUEEN", "KING", "ACE"]
+    let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+    "10", "JACK", "QUEEN", "KING", "ACE"]
 
 
-let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
-    cardValue == card1
-);
+    let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
+        cardValue == card1
+    );
 
-let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
-    cardValue == card2)
+    let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
+        cardValue == card2)
 
-console.log(playerCardValueIndex);
-console.log(computerCardValueIndex);
+    console.log(playerCardValueIndex);
+    console.log(computerCardValueIndex);
 
-    if (playerCardValueIndex == computerCardValueIndex) {
-        paragraph.textContent = `It's a tie!`;
-        resultDiv.append(paragraph);
-        myScore += 1;
-        computersScore += 1;
-        console.log("my score :", myScore);
-        console.log("computer's score :", computersScore);
-        myScoreParagraph.textContent = `You: ${myScore}`;
-        computersScoreParagraph.textContent = `Computer: ${computersScore}`;
-    } else if (playerCardValueIndex  > computerCardValueIndex) {
-        paragraph.textContent = `You won this battle!`;
-        resultDiv.append(paragraph);
-        myScore += 1;
-        myScoreParagraph.textContent = `You: ${myScore}`;
-        computersScoreParagraph.textContent = `Computer: ${computersScore}`;
-        console.log("my score :", myScore);
-        console.log("computer's score :", computersScore);
+        if (playerCardValueIndex == computerCardValueIndex) {
+            paragraph.textContent = `It's a tie!`;
+            resultDiv.append(paragraph);
+            myScore += 1;
+            computersScore += 1;
+            console.log("my score :", myScore);
+            console.log("computer's score :", computersScore);
+            myScoreParagraph.textContent = `You: ${myScore}`;
+            computersScoreParagraph.textContent = `Computer: ${computersScore}`;
+        } else if (playerCardValueIndex  > computerCardValueIndex) {
+            paragraph.textContent = `You won this battle!`;
+            resultDiv.append(paragraph);
+            myScore += 1;
+            myScoreParagraph.textContent = `You: ${myScore}`;
+            computersScoreParagraph.textContent = `Computer: ${computersScore}`;
+            console.log("my score :", myScore);
+            console.log("computer's score :", computersScore);
+        } else {
+            paragraph.textContent = `The computer won this battle...`;
+            resultDiv.append(paragraph);
+            computersScore += 1;
+            computersScoreParagraph.textContent = `Computer: ${computersScore}`;
+            myScoreParagraph.textContent = `You: ${myScore}`;
+            console.log("my score :", myScore);
+            console.log("computer's score :", computersScore);
+        } 
     } else {
-        paragraph.textContent = `The computer won this battle...`;
-        resultDiv.append(paragraph);
-        computersScore += 1;
-        computersScoreParagraph.textContent = `Computer: ${computersScore}`;
-        myScoreParagraph.textContent = `You: ${myScore}`;
-        console.log("my score :", myScore);
-        console.log("computer's score :", computersScore);
-    } 
+        if (myScore > computersScore) {
+            finalScoreParagraph.textContent = `You won the war!`;
+        } else if (computersScore > myScore) {
+            finalScoreParagraph.textContent = `The computer won this war.  Better luck next time...`;
+        } else {
+            `This war had no clear winner - it was a tie.`
+        }
+    }
 }
 
 
