@@ -23,6 +23,23 @@ body {
     background-color: var(--drk-blush);
     color: white;
     font-family: var(--ff-urbanist);
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    filter: hue-rotate(180deg) /*invert(.6);*/
+}
+
+h1 {
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
+p {
+    margin-bottom: 1em;
 }
 
 .btn__deal {
@@ -33,6 +50,29 @@ body {
     padding: .5em;
     height: 3em;
     cursor: pointer;
+    margin-bottom: 1em;
+}
+
+.btn__draw {
+    background-color: var(--lt-blush);
+    color: var(--drk-grey);
+    border: 1px solid var(--drk-grey);
+    border-radius: 70%;
+    padding: .5em;
+    height: 3.5em;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+.btn__discard {
+    background-color: var(--lt-blush);
+    color: var(--drk-grey);
+    border: 1px solid var(--drk-grey);
+    border-radius: 70%;
+    padding: .5em;
+    height: 4.5em;
+    cursor: pointer;
+    margin-bottom: 1em;
 }
 
 .hidden {
