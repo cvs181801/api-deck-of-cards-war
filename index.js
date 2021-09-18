@@ -16,6 +16,10 @@ dealButton.addEventListener("click", function(e) {
     .then((data) => {
         let deckId = `${data.deck_id}`;
         console.log(data);
+        let cardsLeft = data.remaining;
+        let renderCardsLeft = document.createElement("p");
+        renderCardsLeft.textContent = `Cards left: ${cardsLeft}`;
+        resultDiv.append(renderCardsLeft);
         let card1Img = document.createElement('img');
         card1Img.src = `${data.cards[0].image}`
         container.append(card1Img);
@@ -26,8 +30,8 @@ dealButton.addEventListener("click", function(e) {
 
 //1. first solution using if...else statements:
 
-         let playerCardValue = data.cards[0].value;
-         let computerCardValue = data.cards[1].value;
+//let playerCardValue = data.cards[0].value;
+//let computerCardValue = data.cards[1].value;
 
     //     if (playerCardValue == "ACE") {
     //         playerCardValue = 14;
@@ -41,8 +45,7 @@ dealButton.addEventListener("click", function(e) {
     //         parseInt(playerCardValue);
     //     }
 
-         console.log(playerCardValue);
-
+        
 
     //     if (computerCardValue == "ACE") {
     //         computerCardValue = 14;
@@ -56,7 +59,7 @@ dealButton.addEventListener("click", function(e) {
     //         parseInt(computerCardValue);
     //     }
 
-        console.log(computerCardValue);
+        
 
     //     function compareHands(card1, card2) {
 
@@ -105,6 +108,12 @@ dealButton.addEventListener("click", function(e) {
 
 //3. another way to solve it using an array with array method:
 
+let playerCardValue = data.cards[0].value;
+let computerCardValue = data.cards[1].value;
+
+console.log(playerCardValue);
+console.log(computerCardValue);
+
 
 const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
     "10", "JACK", "QUEEN", "KING", "ACE"]
@@ -121,14 +130,25 @@ if (playerCardValueIndex == computerCardValueIndex) {
     paragraph.textContent == `It's a tie!`;
     resultDiv.append(paragraph);
 } else if (playerCardValueIndex > computerCardValueIndex) {
-    paragraph.textContent == `You won!`;
+    paragraph.textContent == `You won this battle!`;
     resultDiv.append(paragraph);
 } else {
-    paragraph.textContent = `The computer won.`;
+    paragraph.textContent = `The computer won this battle...`;
     resultDiv.append(paragraph);
 }
 
+let discardPile;
+let playerCardCode = data.cards[0].code;
+let computerCardCode = data.cards[1].value;
 
-})
+console.log(playerCardCode);
+console.log(computerCardCode);
+
 });
+})
+
+// fetch(`https://www.deckofcardsapi.com/api/deck/${deckId}/pile/${discardPile}/add/?cards=${playerCardCode},${computerCardCode}`)
+//     .then(res => res.json())
+//     .then(data => console.log(data));
+// })
 
