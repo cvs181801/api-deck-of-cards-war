@@ -1,5 +1,5 @@
 //grab elements from the DOM
-const dealButton = document.querySelector(".btn__deal");
+const dealBtn = document.querySelector(".btn__deal");
 const container = document.querySelector(".container");
 const paragraph = document.createElement("p");
 const resultDiv = document.querySelector(".resultDiv");
@@ -8,8 +8,10 @@ const discardBtn = document.querySelector(".btn__discard");
 
 //create a way to get a new deck of cards from the deck of cards api.
 
-dealButton.addEventListener("click", function(e) {
+dealBtn.addEventListener("click", function(e) {
     e.preventDefault();
+    dealBtn.classList.add(".hidden");
+    discardBtn.classList.remove(".hidden");
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/draw/?count=2", {
         method: 'GET',
         jokers_enabled: true,

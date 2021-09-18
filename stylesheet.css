@@ -34,3 +34,7 @@ body {
     height: 3em;
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}
