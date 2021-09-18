@@ -91,26 +91,26 @@ p {
 
 .modal {
     position: absolute;
-    max-width: 30vw;
-    max-height: 30vh;
-    top: 3em;
-    left: 5em;
-    /*border: 2px solid var(--robins-egg);*/
+    max-width: 80vw;
+    max-height: 80vh;
+    top: 5em;
+    left: 4.5em;
     border-radius: 10px;
 }
 
 .modal > img {
     filter: hue-rotate(230deg);
     object-fit: scale-down;
+    max-width: 70vw;
+    max-height: 70vh;
+    border-radius: 10px;
+    padding: .3em;
+    margin: 0 auto;
 }
 
-/*@media (min-width: 600px) {
-    .score {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0 auto;
-        max-width: 15em;
+@media (min-width: 600px) {
+    .modal {
+        top: 5em;
+        left: 25em;
     }
-}*/
+}

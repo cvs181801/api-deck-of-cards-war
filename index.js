@@ -8,13 +8,20 @@
         const resultDiv = document.querySelector(".resultDiv");
         const modalDiv = document.querySelector(".modal");
         const scoreDiv = document.querySelector(".score");
+            //header:
+            const header = document.querySelector("h1");
+                //create card images:
+                let card1Img = document.createElement('img');
+                let card2Img = document.createElement('img');
     //create and append block elements for rendering purposes:
+    let renderCardsLeft = document.createElement("p");
     const paragraph = document.createElement("p");
     const myScoreParagraph = document.createElement("p");
     scoreDiv.append(myScoreParagraph);
     const computersScoreParagraph = document.createElement("p");
     scoreDiv.append(computersScoreParagraph);
     const finalScoreParagraph = document.createElement("p");
+    finalScoreParagraph.style.padding = ".2em";
     modalDiv.append(finalScoreParagraph);
 //create the final score image elements:
 const roseImg = document.createElement("img");
@@ -41,13 +48,10 @@ dealBtn.addEventListener("click", function(e) {
         let deckId = `${data.deck_id}`;
         console.log(data);
         let cardsLeft = data.remaining;
-        let renderCardsLeft = document.createElement("p");
         renderCardsLeft.textContent = `Cards left: ${cardsLeft}`;
         resultDiv.append(renderCardsLeft);
-        let card1Img = document.createElement('img');
         card1Img.src = `${data.cards[0].image}`
         container.append(card1Img);
-        let card2Img = document.createElement('img');
         console.log(`${data.cards[1].image}`)
         card2Img.src = `${data.cards[1].image}`;
         container.append(card2Img);
@@ -152,18 +156,42 @@ if (cardsRemaining > 0) {
         } 
     } else {
         if (myScore > computersScore) {
+            header.textContent = "";
+            renderCardsLeft.textContent = "";
+            card1Img.src = "";
+            card2Img.src = "";
+            discardBtn.classList.add("hidden");
+            drawBtn.classList.add("hidden");
+            myScoreParagraph.textContent = "";
+            computersScoreParagraph. textContent = "";
             finalScoreParagraph.textContent = `You won the war!`;
             modalDiv.style.border = "2px solid white";
             roseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/rose.jpeg";
             modalDiv.append(roseImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/close-photography-of-red-and-pink-rose-56866/</a>`;
         } else if (computersScore > myScore) {
+            header.textContent = "";
+            renderCardsLeft.textContent = "";
+            card1Img.src = "";
+            card2Img.src = "";
+            discardBtn.classList.add("hidden");
+            drawBtn.classList.add("hidden");
+            myScoreParagraph.textContent = "";
+            computersScoreParagraph. textContent = "";
             finalScoreParagraph.textContent = `The computer won this war.  Better luck next time...`;
             modalDiv.style.border = "2px solid white";
             wiltedRoseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
             modalDiv.append(wiltedRoseImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/shabby-rose-with-scattered-petals-around-4041333/</a>`
         } else {
+            header.textContent = "";
+            renderCardsLeft.textContent = "";
+            card1Img.src = "";
+            card2Img.src = "";
+            discardBtn.classList.add("hidden");
+            drawBtn.classList.add("hidden");
+            myScoreParagraph.textContent = "";
+            computersScoreParagraph. textContent = "";
             finalScoreParagraph.textContent = `This war had no clear winner - it was a tie.`
             modalDiv.style.border = "2px solid white";
             rosesImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
