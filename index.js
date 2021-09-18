@@ -10,8 +10,8 @@ const discardBtn = document.querySelector(".btn__discard");
 
 dealBtn.addEventListener("click", function(e) {
     e.preventDefault();
-    dealBtn.classList.add(".hidden");
-    discardBtn.classList.remove(".hidden");
+    dealBtn.classList.add("hidden");
+    discardBtn.classList.remove("hidden");
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/draw/?count=2", {
         method: 'GET',
         jokers_enabled: true,
@@ -51,10 +51,10 @@ dealBtn.addEventListener("click", function(e) {
      cardValue == computerCardValue)
     
         if (playerCardValueIndex == computerCardValueIndex) {
-            paragraph.textContent == `It's a tie!`;
+            paragraph.textContent = `It's a tie!`;
             resultDiv.append(paragraph);
         } else if (playerCardValueIndex > computerCardValueIndex) {
-            paragraph.textContent == `You won this battle!`;
+            paragraph.textContent = `You won this battle!`;
             resultDiv.append(paragraph);
         } else {
             paragraph.textContent = `The computer won this battle...`;
@@ -63,6 +63,9 @@ dealBtn.addEventListener("click", function(e) {
 
 discardBtn.addEventListener("click", function(e) {
     e.preventDefault();
+    paragraph.textContent = "";
+    discardBtn.classList.add("hidden");
+    drawBtn.classList.remove("hidden");
     console.log(deckId);
     let playerCardCode = data.cards[0].code;
     let computerCardCode = data.cards[1].code;
@@ -80,6 +83,8 @@ discardBtn.addEventListener("click", function(e) {
 
     drawBtn.addEventListener("click", function(e) {
         e.preventDefault();
+        discardBtn.classList.remove("hidden");
+        drawBtn.classList.add("hidden");
         paragraph.textContent = "";
         fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res=> res.json())
