@@ -158,6 +158,7 @@ discardBtn.addEventListener("click", function(e) {
             console.log(data.remaining)
         })   
     })
+    //discard button not discarding.
 
     drawBtn.addEventListener("click", function(e) {
         e.preventDefault();
