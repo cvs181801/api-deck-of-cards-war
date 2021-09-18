@@ -3,7 +3,7 @@
     --drk-blush: #7a6b6e;
     --med-blush: #b2868e;
     --taupe: #917F82;
-    --blue: rgb(35, 35, 248);
+    --twilight: rgb(134, 92, 250);
     --robins-egg: rgb(34, 247, 229);
     --ochre: rgb(255, 208, 0);
     --tomato: rgb(255, 63, 29);
@@ -41,6 +41,10 @@ h1 {
 
 p {
     margin-bottom: 1em;
+}
+
+.container {
+    margin: 0 auto;  
 }
 
 .btn__deal {
@@ -112,5 +116,10 @@ p {
     .modal {
         top: 5em;
         left: 20em;
+    }
+
+    .container {
+        display: flex;
+        margin: 0 auto;  
     }
 }

@@ -10,9 +10,40 @@
         const scoreDiv = document.querySelector(".score");
             //header:
             const header = document.querySelector("h1");
-                //create card images:
+                //create card image elements:
                 let card1Img = document.createElement('img');
+                card1Img.style.alignItems = "center";
+                card1Img.style.justifyContent = "center";
                 let card2Img = document.createElement('img');
+                card2Img.style.alignItems = "center";
+                card2Img.style.justifyContent = "center";
+                const card1ImgIndicator = document.createElement("div");
+                const card2ImgIndicator = document.createElement("div");
+                    //style the img indicators:
+                    card1ImgIndicator.style.backgroundColor = "var(--robins-egg)";
+                    card1ImgIndicator.style.height = "2.5em";
+                    card1ImgIndicator.style.width = "2.5em";
+                    card1ImgIndicator.style.border = ".8px solid grey";
+                    card1ImgIndicator.style.borderRadius = "50%";
+                    card1ImgIndicator.textContent = `You`;
+                    card1ImgIndicator.style.textAlign = "center";
+                    card1ImgIndicator.style.alignItems = "center";
+                    card1ImgIndicator.style.color = "white";
+                    card1ImgIndicator.style.fontFamily = "inherit";
+                    card1ImgIndicator.style.fontSize = "2rem";
+
+                    card2ImgIndicator.style.backgroundColor = "var(--twilight)";
+                    card2ImgIndicator.style.height = "2.5em";
+                    card2ImgIndicator.style.width = "2.5em";
+                    card2ImgIndicator.style.border = ".8px solid grey";
+                    card2ImgIndicator.style.borderRadius = "50%";
+                    card2ImgIndicator.textContent = `Computer`;
+                    card2ImgIndicator.style.textAlign = "center";
+                    card2ImgIndicator.style.alignItems = "center";
+                    card2ImgIndicator.style.color = "white";
+                    card2ImgIndicator.style.fontFamily = "inherit";
+                    card2ImgIndicator.style.fontSize = "2rem";
+
     //create and append block elements for rendering purposes:
     let renderCardsLeft = document.createElement("p");
     const paragraph = document.createElement("p");
@@ -52,9 +83,11 @@ dealBtn.addEventListener("click", function(e) {
         resultDiv.append(renderCardsLeft);
         card1Img.src = `${data.cards[0].image}`
         container.append(card1Img);
+        container.append(card1ImgIndicator);
         console.log(`${data.cards[1].image}`)
         card2Img.src = `${data.cards[1].image}`;
         container.append(card2Img);
+        container.append(card2ImgIndicator);
 
 //create a way to determine the winner. * for more possible solutions for the determineWinner function challenge, see bottom part of code.*
       //** function:
