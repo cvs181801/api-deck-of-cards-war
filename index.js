@@ -12,6 +12,10 @@ const computersScoreParagraph = document.createElement("p");
 scoreDiv.append(computersScoreParagraph);
 const finalScoreParagraph = document.createElement("p");
 scoreDiv.append(finalScoreParagraph);
+const roseImg = document.createElement("img");
+const rosesImg = document.createElement("img");
+const wiltedRoseImg = document.createElement("img");
+const imageCredit = document.createElement("p");
 
 //start the score keepers at 0:
 let myScore = 0;
@@ -144,10 +148,19 @@ if (cardsRemaining > 0) {
     } else {
         if (myScore > computersScore) {
             finalScoreParagraph.textContent = `You won the war!`;
+            roseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/rose.jpeg";
+            scoreDiv.append(roseImg);
+            imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/close-photography-of-red-and-pink-rose-56866/</a>`;
         } else if (computersScore > myScore) {
             finalScoreParagraph.textContent = `The computer won this war.  Better luck next time...`;
+            wiltedRoseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
+            scoreDiv.append(wiltedRoseImg);
+            imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/shabby-rose-with-scattered-petals-around-4041333/</a>`
         } else {
-            `This war had no clear winner - it was a tie.`
+            finalScoreParagraph.textContent = `This war had no clear winner - it was a tie.`
+            rosesImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
+            scoreDiv.append(rosesImg);
+            imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/crop-woman-demonstrating-twig-of-red-roses-7700232/</a>`
         }
     }
 }
