@@ -1,17 +1,22 @@
 //grab elements from the DOM
-const dealBtn = document.querySelector(".btn__deal");
-const container = document.querySelector(".container");
-const paragraph = document.createElement("p");
-const resultDiv = document.querySelector(".resultDiv");
-const drawBtn = document.querySelector(".btn__draw");
-const discardBtn = document.querySelector(".btn__discard");
-const scoreDiv = document.querySelector(".score");
-const myScoreParagraph = document.createElement("p");
-scoreDiv.append(myScoreParagraph);
-const computersScoreParagraph = document.createElement("p");
-scoreDiv.append(computersScoreParagraph);
-const finalScoreParagraph = document.createElement("p");
-scoreDiv.append(finalScoreParagraph);
+    //buttons:
+    const dealBtn = document.querySelector(".btn__deal");
+    const drawBtn = document.querySelector(".btn__draw");
+    const discardBtn = document.querySelector(".btn__discard");
+        //div's:
+        const container = document.querySelector(".container");
+        const resultDiv = document.querySelector(".resultDiv");
+        const modalDiv = document.querySelector(".modal");
+        const scoreDiv = document.querySelector(".score");
+    //create and append block elements for rendering purposes:
+    const paragraph = document.createElement("p");
+    const myScoreParagraph = document.createElement("p");
+    scoreDiv.append(myScoreParagraph);
+    const computersScoreParagraph = document.createElement("p");
+    scoreDiv.append(computersScoreParagraph);
+    const finalScoreParagraph = document.createElement("p");
+    modalDiv.append(finalScoreParagraph);
+//create the final score image elements:
 const roseImg = document.createElement("img");
 const rosesImg = document.createElement("img");
 const wiltedRoseImg = document.createElement("img");
@@ -149,17 +154,17 @@ if (cardsRemaining > 0) {
         if (myScore > computersScore) {
             finalScoreParagraph.textContent = `You won the war!`;
             roseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/rose.jpeg";
-            scoreDiv.append(roseImg);
+            modalDiv.append(roseImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/close-photography-of-red-and-pink-rose-56866/</a>`;
         } else if (computersScore > myScore) {
             finalScoreParagraph.textContent = `The computer won this war.  Better luck next time...`;
             wiltedRoseImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
-            scoreDiv.append(wiltedRoseImg);
+            modalDiv.append(wiltedRoseImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/shabby-rose-with-scattered-petals-around-4041333/</a>`
         } else {
             finalScoreParagraph.textContent = `This war had no clear winner - it was a tie.`
             rosesImg.src = "/Users/casvalkyriespicer/Documents/GitHub/api-deck-of-cards-war/pics/wiltedrose.jpeg";
-            scoreDiv.append(rosesImg);
+            modalDiv.append(rosesImg);
             imageCredit.textContent = `medium: <a>https://www.pexels.com/photo/crop-woman-demonstrating-twig-of-red-roses-7700232/</a>`
         }
     }

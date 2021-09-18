@@ -30,7 +30,8 @@ body {
 }
 
 img {
-    filter: hue-rotate(180deg) /*invert(.6);*/
+    filter: hue-rotate(180deg); 
+    margin: 0 1em 0 1em;
 }
 
 h1 {
@@ -78,3 +79,36 @@ p {
 .hidden {
     display: none;
 }
+
+.score {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 15em;
+}
+
+.modal > img {
+    filter: hue-rotate(230deg);
+    object-fit: cover;
+}
+
+.modal {
+    position: absolute;
+    max-width: 50vw;
+    max-height: 50vh;
+    top: 3em;
+    left: 5em;
+}
+
+/*@media (min-width: 600px) {
+    .score {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 15em;
+    }
+}*/
