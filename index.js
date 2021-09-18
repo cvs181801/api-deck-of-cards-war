@@ -33,33 +33,12 @@ dealBtn.addEventListener("click", function(e) {
         container.append(card2Img);
 
 //create a way to determine the winner. * for more possible solutions see bottom part of code.*
-    let playerCardValue = data.cards[0].value;
-    let computerCardValue = data.cards[1].value;
+    // let playerCardValue = data.cards[0].value;
+    // let computerCardValue = data.cards[1].value;
         
-    console.log(playerCardValue);
-    console.log(computerCardValue);
-        
-    let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
-        "10", "JACK", "QUEEN", "KING", "ACE"]
-    
-    
-    let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
-         cardValue == playerCardValue
-     );
-    
-    let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
-     cardValue == computerCardValue)
-    
-        if (playerCardValueIndex == computerCardValueIndex) {
-            paragraph.textContent = `It's a tie!`;
-            resultDiv.append(paragraph);
-        } else if (playerCardValueIndex > computerCardValueIndex) {
-            paragraph.textContent = `You won this battle!`;
-            resultDiv.append(paragraph);
-        } else {
-            paragraph.textContent = `The computer won this battle...`;
-            resultDiv.append(paragraph);
-        } 
+   //** function:
+
+determineWinner(data.cards[0].value, data.cards[1].value);
 
 discardBtn.addEventListener("click", function(e) {
     e.preventDefault();
@@ -95,37 +74,39 @@ discardBtn.addEventListener("click", function(e) {
             let cardsLeft = data.remaining;
             renderCardsLeft.textContent = `Cards left: ${cardsLeft}`;
             
-            let playerCardValue = data.cards[0].value;
-            let computerCardValue = data.cards[1].value;
+
+            determineWinner(data.cards[0].value, data.cards[1].value);
+            // let playerCardValue = data.cards[0].value;
+            // let computerCardValue = data.cards[1].value;
                 
-            console.log(playerCardValue);
-            console.log(computerCardValue);
+            // console.log(playerCardValue);
+            // console.log(computerCardValue);
               
             
-            let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
-                "10", "JACK", "QUEEN", "KING", "ACE"]
+            // let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+            //     "10", "JACK", "QUEEN", "KING", "ACE"]
             
             
-            let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
-                 cardValue == playerCardValue
-             );
+            // let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
+            //      cardValue == playerCardValue
+            //  );
             
-            let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
-             cardValue == computerCardValue)
+            // let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
+            //  cardValue == computerCardValue)
             
-                if (playerCardValueIndex == computerCardValueIndex) {
-                    paragraph.textContent = `It's a tie!`;
-                    //resultDiv.append(paragraph);
-                    //console.log("its a tie!");
-                } else if (playerCardValueIndex > computerCardValueIndex) {
-                    paragraph.textContent = `You won this battle!`;
-                    //resultDiv.append(paragraph);
-                    //console.log("you won this battle");
-                } else {
-                    paragraph.textContent = `The computer won this battle...`;
-                    //resultDiv.append(paragraph);
-                    //console.log("the computer won this battle");
-                }   
+            //     if (playerCardValueIndex == computerCardValueIndex) {
+            //         paragraph.textContent = `It's a tie!`;
+            //         //resultDiv.append(paragraph);
+            //         //console.log("its a tie!");
+            //     } else if (playerCardValueIndex > computerCardValueIndex) {
+            //         paragraph.textContent = `You won this battle!`;
+            //         //resultDiv.append(paragraph);
+            //         //console.log("you won this battle");
+            //     } else {
+            //         paragraph.textContent = `The computer won this battle...`;
+            //         //resultDiv.append(paragraph);
+            //         //console.log("the computer won this battle");
+            //     }   
             
     })//close the draw btn e listener
     
@@ -134,6 +115,34 @@ discardBtn.addEventListener("click", function(e) {
 });//close the second .then
     
 }); //close the deal new deck e listener
+
+function determineWinner(card1, card2) {
+
+let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+"10", "JACK", "QUEEN", "KING", "ACE"]
+
+
+let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
+ cardValue == card1
+);
+
+let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
+cardValue == card2)
+
+console.log(playerCardValueIndex);
+console.log(computerCardValueIndex);
+
+    if (playerCardValueIndex == computerCardValueIndex) {
+        paragraph.textContent = `It's a tie!`;
+        resultDiv.append(paragraph);
+    } else if (playerCardValueIndex  > computerCardValueIndex) {
+        paragraph.textContent = `You won this battle!`;
+        resultDiv.append(paragraph);
+    } else {
+        paragraph.textContent = `The computer won this battle...`;
+        resultDiv.append(paragraph);
+    } 
+}
 
 
 //**** More algorithmic ways to solve the 'determine winner' challenge */
