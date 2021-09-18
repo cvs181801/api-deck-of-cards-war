@@ -3,6 +3,7 @@ const dealButton = document.querySelector(".btn__deal");
 const container = document.querySelector(".container");
 const paragraph = document.createElement("p");
 const resultDiv = document.querySelector(".resultDiv");
+const drawBtn = document.querySelector(".btn__draw");
 const discardBtn = document.querySelector(".btn__discard");
 
 //create a way to get a new deck of cards from the deck of cards api.
@@ -140,7 +141,7 @@ if (playerCardValueIndex == computerCardValueIndex) {
 
 //let discardPile;
 let playerCardCode = data.cards[0].code;
-let computerCardCode = data.cards[1].value;
+let computerCardCode = data.cards[1].code;
 
 
 
@@ -150,18 +151,28 @@ discardBtn.addEventListener("click", function(e) {
     //console.log(discardPile);
     console.log(playerCardCode);
     console.log(computerCardCode); //https://apis.scrimba.com/deckofcards/api/deck/new/draw/?count=2   //`https://www.deckofcardsapi.com/api/deck/${deckId}/pile/${discardPile}/add/?cards=${playerCardCode},${computerCardCode}`
-    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/pile/discardPile/add/?cards=${playerCardCode},${computerCardCode}`, {
-        method: 'PUT'
-    })
+    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/pile/discardPile/add/?cards=${playerCardCode},${computerCardCode}`)
         .then(res => res.json())
-        .then(data => console.log(data)
-        //console.log(data.remaining)
-        )   
+        .then((data) => {
+            console.log(data)
+            console.log(data.remaining)
+        })   
+    })
+
+    drawBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
+        .then(res=> res.json())
+        .then((data) => {
+            console.log(data)
+            
     })
     
-});
+})//close the discard btn e listener
+
+});//close the second .then
     
-});
+}); //close the deal new deck e listener
 
 
 
