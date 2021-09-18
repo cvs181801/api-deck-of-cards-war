@@ -110,45 +110,39 @@ dealButton.addEventListener("click", function(e) {
 
 //3. another way to solve it using an array with array method:
 
-let playerCardValue = data.cards[0].value;
-let computerCardValue = data.cards[1].value;
-
-console.log(playerCardValue);
-console.log(computerCardValue);
-
-
-const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
-    "10", "JACK", "QUEEN", "KING", "ACE"]
-
-
- const playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
-     cardValue == playerCardValue
- );
-
- const computerCardValueIndex = valueOptions.findIndex((cardValue) =>
- cardValue == computerCardValue)
-
-if (playerCardValueIndex == computerCardValueIndex) {
-    paragraph.textContent == `It's a tie!`;
-    resultDiv.append(paragraph);
-} else if (playerCardValueIndex > computerCardValueIndex) {
-    paragraph.textContent == `You won this battle!`;
-    resultDiv.append(paragraph);
-} else {
-    paragraph.textContent = `The computer won this battle...`;
-    resultDiv.append(paragraph);
-}
-
-//let discardPile;
-let playerCardCode = data.cards[0].code;
-let computerCardCode = data.cards[1].code;
-
-
+    let playerCardValue = data.cards[0].value;
+    let computerCardValue = data.cards[1].value;
+        
+    console.log(playerCardValue);
+    console.log(computerCardValue);
+        
+    let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+        "10", "JACK", "QUEEN", "KING", "ACE"]
+    
+    
+    let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
+         cardValue == playerCardValue
+     );
+    
+    let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
+     cardValue == computerCardValue)
+    
+        if (playerCardValueIndex == computerCardValueIndex) {
+            paragraph.textContent == `It's a tie!`;
+            resultDiv.append(paragraph);
+        } else if (playerCardValueIndex > computerCardValueIndex) {
+            paragraph.textContent == `You won this battle!`;
+            resultDiv.append(paragraph);
+        } else {
+            paragraph.textContent = `The computer won this battle...`;
+            resultDiv.append(paragraph);
+        } 
 
 discardBtn.addEventListener("click", function(e) {
     e.preventDefault();
     console.log(deckId);
-    //console.log(discardPile);
+    let playerCardCode = data.cards[0].code;
+    let computerCardCode = data.cards[1].code;
     console.log(playerCardCode);
     console.log(computerCardCode); //https://apis.scrimba.com/deckofcards/api/deck/new/draw/?count=2   //`https://www.deckofcardsapi.com/api/deck/${deckId}/pile/${discardPile}/add/?cards=${playerCardCode},${computerCardCode}`
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/pile/discardPile/add/?cards=${playerCardCode},${computerCardCode}`)
@@ -156,24 +150,64 @@ discardBtn.addEventListener("click", function(e) {
         .then((data) => {
             console.log(data)
             console.log(data.remaining)
+            card1Img.src = "";
+            card2Img.src = "";
         })   
     })
-    //discard button not discarding.
 
     drawBtn.addEventListener("click", function(e) {
         e.preventDefault();
+        paragraph.textContent = "";
         fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res=> res.json())
         .then((data) => {
             console.log(data)
+            card1Img.src = `${data.cards[0].image}`;
+            card2Img.src = `${data.cards[1].image}`;
+            let cardsLeft = data.remaining;
+            renderCardsLeft.textContent = `Cards left: ${cardsLeft}`;
             
-    })
+            let playerCardValue = data.cards[0].value;
+            let computerCardValue = data.cards[1].value;
+                
+            console.log(playerCardValue);
+            console.log(computerCardValue);
+              
+            
+            let valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
+                "10", "JACK", "QUEEN", "KING", "ACE"]
+            
+            
+            let playerCardValueIndex = valueOptions.findIndex((cardValue) =>  
+                 cardValue == playerCardValue
+             );
+            
+            let computerCardValueIndex = valueOptions.findIndex((cardValue) =>
+             cardValue == computerCardValue)
+            
+                if (playerCardValueIndex == computerCardValueIndex) {
+                    paragraph.textContent == `It's a tie!`;
+                    //resultDiv.append(paragraph);
+                    //console.log("its a tie!");
+                } else if (playerCardValueIndex > computerCardValueIndex) {
+                    paragraph.textContent == `You won this battle!`;
+                    //resultDiv.append(paragraph);
+                    //console.log("you won this battle");
+                } else {
+                    paragraph.textContent = `The computer won this battle...`;
+                    //resultDiv.append(paragraph);
+                    //console.log("the computer won this battle");
+                }   
+            
+    })//close the draw btn e listener
     
 })//close the discard btn e listener
 
 });//close the second .then
     
 }); //close the deal new deck e listener
+
+
 
 
 
