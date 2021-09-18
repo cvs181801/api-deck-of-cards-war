@@ -225,13 +225,16 @@ function clearElementRenders() {
 }
 
 card1ImgIndicator.addEventListener("mouseover", function(e) {
-    card1Img.style.border = "2px solid var(--robins-egg)";
-    card1Img.style.borderRadius = "10px";
+    //card1Img.style.border = "2px solid var(--robins-egg)";
+    //card1Img.style.borderRadius = "10px";
+    card1Img.style.background = "rgba(247, 34, 52, .5)";
+
 })
 
 card2ImgIndicator.addEventListener("mouseover", function(e) {
-    card2Img.style.border = "2px solid var(--twilight)";
-    card2Img.style.borderRadius = "10px";
+    //card2Img.style.border = "2px solid var(--twilight)";
+    //card2Img.style.borderRadius = "10px";
+    card2Img.style.background =  "rgba(208, 250, 92, .5)";
 })
 
 
