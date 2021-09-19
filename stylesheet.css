@@ -100,7 +100,7 @@ img {
 }
 
 .modal {
-    position: absolute;
+    /*position: absolute;*/
     /*max-width: 90vw;
     max-height: 90vh;*/
     height: 100%;
@@ -108,9 +108,10 @@ img {
     margin: 0 auto;
     /*top: 5em;
     left: 4.5em;*/
-    top: auto;
-    left: auto;
+    /*top: auto;
+    left: auto;*/
     border-radius: 10px;
+    border: 2px solid red;
 }
 
 .modal > img {
@@ -122,12 +123,14 @@ img {
     padding: .3em;
     margin: 0 auto;
     display: block;
+    border: 2px solid pink;
 }
 
 @media (min-width: 600px) {
     .modal {
        /* top: 5em;
         left: 20em;*/
+        margin: 0 auto;
         top: auto;
         left: auto;
         

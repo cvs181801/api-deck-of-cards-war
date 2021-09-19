@@ -56,6 +56,7 @@
     scoreDiv.append(computersScoreParagraph);
     const finalScoreParagraph = document.createElement("p");
     finalScoreParagraph.style.padding = ".2em";
+    finalScoreParagraph.style.border = "2px solid yellow";
     modalDiv.append(finalScoreParagraph);
 //create the final score image elements:
 const roseImg = document.createElement("img");
