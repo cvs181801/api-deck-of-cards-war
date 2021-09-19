@@ -22,7 +22,7 @@
                     //style the img indicators:
                     card1ImgIndicator.style.backgroundColor = "var(--robins-egg)";
                     card1ImgIndicator.style.height = "2.5em";
-                    card1ImgIndicator.style.width = "2.5em";
+                    card1ImgIndicator.style.width = "3em";
                     card1ImgIndicator.style.border = ".8px solid grey";
                     card1ImgIndicator.style.borderRadius = "50%";
                     card1ImgIndicator.textContent = `You`;
@@ -31,6 +31,7 @@
                     card1ImgIndicator.style.color = "white";
                     card1ImgIndicator.style.fontFamily = "inherit";
                     card1ImgIndicator.style.fontSize = "2rem";
+                    card1ImgIndicator.style.marginRight = ".5em";
 
                     card2ImgIndicator.style.backgroundColor = "var(--twilight)";
                     card2ImgIndicator.style.height = "2.5em";
@@ -43,6 +44,7 @@
                     card2ImgIndicator.style.color = "white";
                     card2ImgIndicator.style.fontFamily = "inherit";
                     card2ImgIndicator.style.fontSize = "2rem";
+                    card2ImgIndicator.style.marginLeft = ".5em";
 
     //create and append block elements for rendering purposes:
     let renderCardsLeft = document.createElement("p");
@@ -83,7 +85,7 @@ dealBtn.addEventListener("click", function(e) {
         resultDiv.append(renderCardsLeft);
         card1Img.src = `${data.cards[0].image}`
         container.append(card1Img);
-        container.append(card1ImgIndicator);
+        container.insertBefore(card1ImgIndicator, card1Img);
         console.log(`${data.cards[1].image}`)
         card2Img.src = `${data.cards[1].image}`;
         container.append(card2Img);

@@ -128,5 +128,11 @@ img {
         display: flex;
         margin: 0 auto;  
         max-width: 50vw;
+        justify-content: center;
     }
+
+   .container > img {
+       max-width: 45%;
+
+   }
 }
