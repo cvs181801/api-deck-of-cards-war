@@ -29,11 +29,6 @@ body {
     align-items: center;
 }
 
-img {
-    filter: hue-rotate(180deg); 
-    margin: 0 1em 0 1em;
-}
-
 h1 {
     margin-bottom: .5em;
     margin-top: .5em;
@@ -45,6 +40,17 @@ p {
 
 .container {
     margin: 0 auto;  
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+img {
+    filter: hue-rotate(180deg); 
+    margin: auto;
+    display: block;
+    width: 45%;
 }
 
 .btn__deal {
@@ -121,5 +127,6 @@ p {
     .container {
         display: flex;
         margin: 0 auto;  
+        max-width: 50vw;
     }
 }
