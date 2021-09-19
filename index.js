@@ -22,7 +22,7 @@
                     //style the img indicators:
                     card1ImgIndicator.style.backgroundColor = "var(--robins-egg)";
                     card1ImgIndicator.style.height = "2.5em";
-                    card1ImgIndicator.style.width = "3em";
+                    card1ImgIndicator.style.width = "2.5em";
                     card1ImgIndicator.style.border = ".8px solid grey";
                     card1ImgIndicator.style.borderRadius = "50%";
                     card1ImgIndicator.textContent = `You`;
@@ -32,6 +32,7 @@
                     card1ImgIndicator.style.fontFamily = "inherit";
                     card1ImgIndicator.style.fontSize = "2rem";
                     card1ImgIndicator.style.marginRight = ".5em";
+                    card1ImgIndicator.classList.add("container__card1image-indicator");
 
                     card2ImgIndicator.style.backgroundColor = "var(--twilight)";
                     card2ImgIndicator.style.height = "2.5em";
@@ -227,16 +228,35 @@ function clearElementRenders() {
 }
 
 card1ImgIndicator.addEventListener("mouseover", function(e) {
+    e.preventDefault();
     //card1Img.style.border = "2px solid var(--robins-egg)";
     //card1Img.style.borderRadius = "10px";
-    card1Img.style.background = "rgba(247, 34, 52, .5)";
+    card1ImgIndicator.style.transform = "rotate(-180deg) scale(2)";
+    //card1ImgIndicator.style.backgroundColor = "rgba(247, 34, 52, .5)";
+    card1ImgIndicator.style.zIndex = "1000";
+    card1ImgIndicator.style.opacity = ".8";
+})
 
+card1ImgIndicator.addEventListener("mouseout", function(e) {
+    e.preventDefault();
+    card1ImgIndicator.style.transform = "rotate(180deg) scale(1)";
+    card1ImgIndicator.style.zIndex = "1000";
 })
 
 card2ImgIndicator.addEventListener("mouseover", function(e) {
+    e.preventDefault();
     //card2Img.style.border = "2px solid var(--twilight)";
     //card2Img.style.borderRadius = "10px";
-    card2Img.style.background =  "rgba(208, 250, 92, .5)";
+    card2ImgIndicator.style.transform = "rotate(-180deg) scale(2)";
+    //card2ImgIndicator.style.backgroundColor =  "rgba(208, 250, 92, .5)";
+    card2ImgIndicator.style.zIndex = "1000";
+    card2ImgIndicator.style.opacity = ".8";
+})
+
+card2ImgIndicator.addEventListener("mouseout", function(e) {
+    e.preventDefault();
+    card2ImgIndicator.style.transform = "rotate(180deg) scale(1)";
+    card2ImgIndicator.style.zIndex = "1000";
 })
 
 

@@ -135,4 +135,8 @@ img {
        max-width: 45%;
 
    }
+
+   .container__card1image-indicator {
+       width: 3em;
+   }
 }
