@@ -217,6 +217,8 @@ if (cardsRemaining > 0) {
 } //close function determineWinner()
 
 function clearElementRenders() {
+    card1ImgIndicator.classList.add("hidden");
+    card2ImgIndicator.classList.add("hidden");
     header.textContent = "";
     renderCardsLeft.textContent = "";
     card1Img.src = "";
